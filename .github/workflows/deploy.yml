@@ -13,14 +13,15 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Deploy over SSH
+      - name: Deploy application to Azure VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
-          username: root
+          username: tejas2
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /var/www/ai-devops-assignment
+            cd /home/tejas2/ai-devops-assignment
             git pull origin main
-            docker compose down
-            docker compose up -d --build
+            sudo docker-compose down
+            sudo docker-compose up -d --build
+            sudo docker ps
