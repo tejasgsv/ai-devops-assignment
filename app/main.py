@@ -8,7 +8,7 @@ def home():
     return """
     <html>
     <head>
-        <title>Webvory DevOps Assignment</title>
+        <title>Production Deployment For Webvory</title>
         <style>
             body {
                 font-family: Arial;
