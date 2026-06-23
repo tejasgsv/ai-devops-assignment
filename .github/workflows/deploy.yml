@@ -19,9 +19,10 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: tejas2
           key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
           script: |
             cd /home/tejas2/ai-devops-assignment
             git pull origin main
-            sudo docker-compose down
-            sudo docker-compose up -d --build
-            sudo docker ps
+            docker-compose down
+            docker-compose up -d --build
+            docker ps
